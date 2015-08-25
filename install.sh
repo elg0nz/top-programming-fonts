@@ -1,7 +1,9 @@
 #!/bin/bash
 
 FONTS_DIR=$HOME/.fonts
-TOP_FONTS=("Menlo-Regular.ttf" "Monaco-Linux.ttf" "DejaVuSansMono.ttf")
+TOP_FONTS=("Menlo-Regular.ttf" "Monaco-Linux.ttf" "DejaVuSansMono.ttf"
+"VeraMoBI.ttf"	"VeraMoBd.ttf"	"VeraMoIt.ttf"	"VeraMono.ttf"
+)
 
 function die () {
     echo "${@}"
@@ -13,7 +15,7 @@ cat <<EOF
 --------------------------
  Top Programming Fonts!
 --------------------------
-  - Created and maintained by hbin
+  - Created and maintained by elg0nz
 
 EOF
 
@@ -24,7 +26,7 @@ fi
 
 for i in ${TOP_FONTS[*]}; do
     echo "Downloading $i"; echo
-    wget -c https://github.com/hbin/top-programming-fonts/raw/master/$i \
+    curl -O https://github.com/elg0nz/top-programming-fonts/raw/master/$i \
       || die "Fail to download ${i}"
     mv $i $FONTS_DIR || die "Could not install $i"
     echo "Installed $i successfully"; echo
@@ -35,7 +37,4 @@ cat <<EOF
 --------------------------
  Fonts installed! Enjoy!
 --------------------------
-  - If you have any question, pls
-    mail to <huangbin88@foxmail.com>
-
 EOF
